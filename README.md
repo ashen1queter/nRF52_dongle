@@ -8,6 +8,11 @@ Currently, the core features are being developed and validated through smaller e
 - [ ] HID (In progress)
 - [ ] CLI 
 
+- [`ble_app_template`](./nRF52_dongle/examples/jesica/ble_app_template):  
+  Targeted for the **nRF52840 Dongle**. 
+- [`ble_app_gatts`](./nRF52_dongle/examples/jesica/ble_app_gatts):  
+  Tailored for the **SuperMini nRF52840**.
+  
 # Main core logic inspiration
 
 1. [DIYAnalogKeeb by tommybee456](https://github.com/tommybee456/DIYAnalogKeeb/tree/main/src)  

@@ -10,10 +10,10 @@ Currently, the core features are being developed and validated through smaller e
 
 # Main code
 
-- [`ble_app_gatts`](./examples/jesica/ble_app_gatts) - [`ses`](./examples/jesica/ble_app_gatts/pca10056/s140/ses):
+- [`ble_app_gatts`](./examples/jesica/ble_app_gatts) [`ses`](./examples/jesica/ble_app_gatts/pca10056/s140/ses):
   Targeted for the **SuperMini nRF52840**.
   
-- [`ble_app_template`](./examples/jesica/ble_app_template) - [`ses`](./examples/jesica/ble_app_template/pca10056/s140/ses):  
+- [`ble_app_template`](./examples/jesica/ble_app_template) [`ses`](./examples/jesica/ble_app_template/pca10056/s140/ses):  
   Targeted for the **nRF52840 Dongle**.
   
 # Main core logic inspiration

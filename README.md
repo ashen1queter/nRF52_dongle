@@ -8,6 +8,8 @@ Currently, the core features are being developed and validated through smaller e
 - [ ] HID (In progress)
 - [ ] CLI 
 
+# Main code
+
 - [`ble_app_template`](./examples/jesica/ble_app_template):  
   Targeted for the **nRF52840 Dongle**.
 

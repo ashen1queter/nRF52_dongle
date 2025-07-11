@@ -1,0 +1,49 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="15" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" stopAll="false" group="Breakpoints" type="Breakpoint" state="2" filename="../../../main.c" useHWbreakpoint="false"/>
+ </Breakpoints>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="cli_pca10059_mbr"/>
+  <ProjectSessionItem path="cli_pca10059_mbr;cli_pca10059_mbr"/>
+  <ProjectSessionItem path="cli_pca10059_mbr;cli_pca10059_mbr;Application"/>
+  <ProjectSessionItem path="cli_pca10059_mbr;cli_pca10059_mbr;nRF_Libraries"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="243" useTextEdit="1" path="../../../main.c" left="0" top="228" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="../../../demo_cli_cmds.c" left="0" top="496" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5201" useTextEdit="1" path="../config/sdk_config.h" left="0" selected="1" top="5164" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="1059" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.c" left="0" top="1044" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="39" y="106" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.h" left="0" top="91" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="cli_pca10059_mbr" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

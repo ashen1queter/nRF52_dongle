@@ -1,0 +1,51 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;Application"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;nRF_BLE"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="756" useTextEdit="1" path="../../../main.c" left="0" selected="1" top="737" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="1135" useTextEdit="1" path="../../../../../../components/ble/nrf_ble_scan/nrf_ble_scan.c" left="0" top="1120" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="464" useTextEdit="1" path="../../../../../../components/ble/nrf_ble_scan/nrf_ble_scan.h" left="0" top="440" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="928" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gap.h" left="0" top="889" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="195" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_types.h" left="0" top="167" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="60" y="104" useTextEdit="1" path="../../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.c" left="0" top="258" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="91" y="173" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gattc.h" left="0" top="134" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="89" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_ranges.h" left="0" top="74" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="224" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble.h" left="0" top="209" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="ble_app_gatts_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

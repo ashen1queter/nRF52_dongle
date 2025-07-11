@@ -1,0 +1,54 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;Application"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;nRF_BLE"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;nRF_Drivers"/>
+  <ProjectSessionItem path="ble_app_gatts_pca10056_s140;ble_app_gatts_pca10056_s140;nRF_Libraries"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="653" useTextEdit="1" folds0="88,100" path="../../../main.c" left="0" top="636" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="104" useTextEdit="1" folds0="47,52,204,212" path="aadc.c" left="0" top="92" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="25" y="35" useTextEdit="1" path="aadc.h" left="0" top="19" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="14" y="5900" useTextEdit="1" path="../config/sdk_config.h" left="0" top="5883" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="42" y="97" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_saadc.h" left="0" top="81" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="44" y="539" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/src/nrfx_saadc.c" left="0" top="523" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="40" y="274" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/stdint.h" left="0" top="258" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="54" y="85" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gattc.h" left="0" top="79" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="28" y="222" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_saadc.h" left="0" top="209" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="157" y="159" useTextEdit="1" path="../../../../../../modules/nrfx/hal/nrf_saadc.h" left="94" selected="1" top="159" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="ble_app_gatts_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/katri/Desktop/nrf52-donggle/pika/nRF5_SDK_17.1.0_ddde560/nRF5_SDK_17.1.0_ddde560/modules/nrfx/drivers/src" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

@@ -1,6 +1,6 @@
 # Analog Glove
 
-A work-in-progress, BLE-enabled analog input glove using flex sensors, real-time ADC sampling, and USB HID output.  
+A work-in-progress, BLE-enabled analog input glove using flex sensors, real-time ADC sampling, and USB HID output over dongle.  
 Currently, the core features are being developed and validated through smaller experimental projects, as follows:
 
 - [ ] BLE (Mostly complete) [Notion Page](https://jolly-cycle-c67.notion.site/Analog-Glove-228ed72549008087aae9fa4d90f2193a?pvs=74)

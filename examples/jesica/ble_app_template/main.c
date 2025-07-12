@@ -65,14 +65,15 @@
 
 NRF_BLE_GATT_DEF(m_gatt);
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< GATT module instance. */
-BLE_CUS_DEF(m_cus);                                                             /**< Context for the Queued Write module.*/
+BLE_CUS_DEF(m_cus);  
+ble_cus_t *m_cuss = &m_cus;                                                           /**< Context for the Queued Write module.*/
 BLE_ADVERTISING_DEF(m_advertising);                                             /**< Advertising module instance. */
 
 //APP_TIMER_DEF(m_notification_timer_id);
 
 //static uint8_t m_custom_value = 0;
 
-static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
+uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
 
 // YOUR_JOB: Use UUIDs for service(s) used in your application.
 static ble_uuid_t m_adv_uuids[] =                                               
@@ -82,7 +83,7 @@ static ble_uuid_t m_adv_uuids[] =
 
 
 static void advertising_start(void);
-static void cli_or_hid(uint8_t flag);
+static uint8_t usbd_status;
 
 
 /**
@@ -128,6 +129,7 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
         case PM_EVT_CONN_SEC_SUCCEEDED:
         {
             enc_try = 0;
+            usbd_status = 1;
             NRF_LOG_INFO("Connection secured: role: %d, conn_handle: 0x%x, procedure: %d.",
                          ble_conn_state_role(p_evt->conn_handle),
                          p_evt->conn_handle,
@@ -474,7 +476,6 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
-            cli_or_hid(1);
             break;
 
         case BLE_GAP_EVT_PHY_UPDATE_REQUEST:
@@ -684,12 +685,16 @@ int main(void)
     //application_timers_start();
 
     advertising_start();
-    hid_init();
     keyboard_init_keys();
 
     // Enter main loop.
     for (;;)
     {
+        if(usbd_status){
+            cdc_init();}
+        else{
+            hid_init();
+        }
          while (app_usbd_event_queue_process()) {
         }
 

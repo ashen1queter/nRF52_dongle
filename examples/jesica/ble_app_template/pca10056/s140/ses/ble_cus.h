@@ -29,6 +29,7 @@ NRF_SDH_BLE_OBSERVER(_name ## _obs,                                             
                               0xDE, 0xEF, 0x12, 0x12, 0x00, 0x00, 0x00, 0x00}
 #define CUS_UUID_SERVICE     0x1523
 #define CUS_UUID_ADC_CHAR    0x1524
+#define CUS_UUID_SS_CHAR     0x1525
 
 // Forward declaration of the ble_cus_t type.
 typedef struct ble_cus_s ble_cus_t;
@@ -47,6 +48,7 @@ struct ble_cus_s
 {
     uint16_t                    service_handle;      /**< Handle of Custom Service. */
     ble_gatts_char_handles_t    adc_char_handles;    /**< Handles related to the ADC Characteristic. */
+    ble_gatts_char_handles_t    ss_char_handles;    /**< Handles related to the Sleep_Shut Characteristic. */
     uint8_t                     uuid_type;           /**< UUID type for the Custom Service. */
     ble_cus_adc_write_handler_t adc_write_handler;   /**< Event handler to be called when the ADC Characteristic is written. */
 };
@@ -63,6 +65,8 @@ struct ble_cus_s
  */
 uint32_t ble_cus_init(ble_cus_t * p_cus, const ble_cus_init_t * p_cus_init);
 
+//void sleep_notify(ble_cus_t * m_cus, uint16_t * m_conn_handle, uint8_t sleep_signal);
+void sleep_notify(uint8_t sleep_signal);
 #ifdef __cplusplus
 }
 #endif

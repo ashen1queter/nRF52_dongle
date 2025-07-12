@@ -1,6 +1,7 @@
 #include "hid.h"
 #include "keyboard.h"
 #include <stdlib.h>
+#include "usbd_cdc.h"
 
 
 extern struct user_config keyboard_user_config;
@@ -10,17 +11,20 @@ static uint8_t keycodes[6] = {0};
 
 APP_USBD_HID_KBD_GLOBAL_DEF(m_keeb, 0, NRF_DRV_USBD_EPIN1, NULL, APP_USBD_HID_SUBCLASS_BOOT);
 
-static void usbd_init(void)
+void hid_init(void)
 {
     ret_code_t err_code;
 
     err_code = nrf_drv_clock_init();
     APP_ERROR_CHECK(err_code);
+
     nrf_drv_clock_lfclk_request(NULL);
 
     
-    err_code = nrf_pwr_mgmt_init();
-    APP_ERROR_CHECK(err_code);
+    while(!nrf_drv_clock_lfclk_is_running())
+    {
+        /* Just waiting */
+    }
 
     
     err_code = app_usbd_init(NULL);
@@ -32,8 +36,18 @@ static void usbd_init(void)
     APP_ERROR_CHECK(err_code);
 
     
-    app_usbd_enable();
-    app_usbd_start();
+    if (USBD_POWER_DETECTION)
+    {
+        err_code = app_usbd_power_events_enable();
+        APP_ERROR_CHECK(err_code);
+    }
+    else
+    {
+        //NRF_LOG_INFO("No USB power detection enabled\r\nStarting USB now");
+
+        app_usbd_enable();
+        app_usbd_start();
+    }
 }
 
 

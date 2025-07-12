@@ -2,6 +2,7 @@
 #include "ble_cus.h"
 #include "ble_srv_common.h"
 #include "app_error.h"
+#include "main.h"
 
 
 /**@brief Function for handling the Write event.
@@ -69,9 +70,43 @@ uint32_t ble_cus_init(ble_cus_t * p_cus, const ble_cus_init_t * p_cus_init)
     add_char_params.char_props.notify = 1;
 
     add_char_params.read_access       = SEC_OPEN;
+    add_char_params.write_access = SEC_OPEN;
+
+    err_code = characteristic_add(p_cus->service_handle,
+                                  &add_char_params,
+                                  &p_cus->adc_char_handles);
+    if(err_code != NRF_SUCCESS){
+        return err_code;
+    }
+
+    // Add Sleep_Shut characteristic.
+    memset(&add_char_params, 0, sizeof(add_char_params));
+    add_char_params.uuid              = CUS_UUID_SS_CHAR;
+    add_char_params.uuid_type         = p_cus->uuid_type;
+    add_char_params.init_len          = sizeof(uint8_t);
+    add_char_params.max_len           = sizeof(uint8_t);
+    add_char_params.char_props.read   = 1;
+    add_char_params.char_props.notify = 1;
+
+    add_char_params.read_access       = SEC_OPEN;
     add_char_params.cccd_write_access = SEC_OPEN;
 
     return characteristic_add(p_cus->service_handle,
                                   &add_char_params,
-                                  &p_cus->adc_char_handles);
+                                  &p_cus->ss_char_handles);
+}
+
+
+void sleep_notify(uint8_t sleep_signal)
+{
+    uint16_t len = sizeof(sleep_signal);
+
+    ble_gatts_hvx_params_t hvx_params = {0};
+    hvx_params.handle = m_cuss->ss_char_handles.value_handle;
+    hvx_params.type   = BLE_GATT_HVX_NOTIFICATION;
+    hvx_params.offset = 0;
+    hvx_params.p_data = &sleep_signal;
+    hvx_params.p_len  = &len;
+
+    sd_ble_gatts_hvx(m_conn_handle, &hvx_params);
 }

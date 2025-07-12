@@ -60,28 +60,21 @@
 #include "boards.h"
 #include "bsp.h"
 #include "keyboard.h"
+#include "app_timer.h"
+#include "ble_cus.h"
+#include "main.h"
 
+#define SLEEP_TIMEOUT_MS 300000
 
 #define LED_USB_RESUME      (BSP_BOARD_LED_0)
 #define LED_CDC_ACM_OPEN    (BSP_BOARD_LED_1)
 #define LED_CDC_ACM_RX      (BSP_BOARD_LED_2)
 #define LED_CDC_ACM_TX      (BSP_BOARD_LED_3)
 
+#define READ_SIZE 8
 
 #define BTN_CDC_DATA_KEY_RELEASE        (bsp_event_t)(BSP_EVENT_KEY_LAST + 1)
 
-/**
- * @brief Enable power USB detection
- *
- * Configure if example supports USB port connection
- */
-#ifndef USBD_POWER_DETECTION
-#define USBD_POWER_DETECTION true
-#endif
-
-
-static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
-                                    app_usbd_cdc_acm_user_event_t event);
 
 #define CDC_ACM_COMM_INTERFACE  0
 #define CDC_ACM_COMM_EPIN       NRF_DRV_USBD_EPIN2
@@ -90,6 +83,8 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
 #define CDC_ACM_DATA_EPIN       NRF_DRV_USBD_EPIN1
 #define CDC_ACM_DATA_EPOUT      NRF_DRV_USBD_EPOUT1
 
+static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
+                                    app_usbd_cdc_acm_user_event_t event);
 
 /**
  * @brief CDC_ACM class instance
@@ -103,8 +98,8 @@ APP_USBD_CDC_ACM_GLOBAL_DEF(m_app_cdc_acm,
                             CDC_ACM_DATA_EPOUT,
                             APP_USBD_CDC_COMM_PROTOCOL_NONE
 );
+APP_TIMER_DEF(m_sleep_timer);
 
-#define READ_SIZE 8
 
 static char m_rx_buffer[READ_SIZE];
 static char m_tx_buffer[64];
@@ -124,9 +119,33 @@ typedef enum {
 
 static cdc_input_state_t cdc_state = CDC_STATE_INIT;
 
+
+static void sleep_timeout_handler(void * p_context)
+{
+    UNUSED_PARAMETER(p_context);
+
+    size_t size = 0;
+
+    size = snprintf(m_tx_buffer, sizeof(m_tx_buffer), "Going to sleep...\r\n");
+    ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm, m_tx_buffer, size);
+    UNUSED_VARIABLE(ret);
+    
+    sleep_notify(1);
+    
+    sd_power_system_off();
+}
+
+static void timer_init(void)
+{
+    ret_code_t err_code = app_timer_init();
+    APP_ERROR_CHECK(err_code);
+}
+  
+
 static void cdc_prompt_next(void)
 {
     size_t size = 0;
+    ret_code_t ret;
 
     switch (cdc_state) {
         case CDC_STATE_INIT:
@@ -161,8 +180,12 @@ static void cdc_prompt_next(void)
             return;
     }
 
-    ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm, m_tx_buffer, size);
+    ret = app_usbd_cdc_acm_write(&m_app_cdc_acm, m_tx_buffer, size);
     UNUSED_VARIABLE(ret);
+
+    ret = app_timer_start(m_sleep_timer, APP_TIMER_TICKS(SLEEP_TIMEOUT_MS), sleep_timeout_handler);
+    APP_ERROR_CHECK(ret);
+
 }
 
 
@@ -189,6 +212,8 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
 
         case APP_USBD_CDC_ACM_USER_EVT_RX_DONE:
         {
+            app_timer_stop(m_sleep_timer);
+            app_timer_start(m_sleep_timer, APP_TIMER_TICKS(SLEEP_TIMEOUT_MS), sleep_timeout_handler);
             do {
                 size_t size = app_usbd_cdc_acm_rx_size(p_cdc_acm);
                 ret = app_usbd_cdc_acm_read(&m_app_cdc_acm, m_rx_buffer, READ_SIZE);
@@ -281,7 +306,7 @@ static void usbd_user_ev_handler(app_usbd_event_type_t event)
 
 
 
-int main(void)
+void cdc_init(void)
 {
     ret_code_t ret;
     static const app_usbd_config_t usbd_config = {
@@ -320,15 +345,7 @@ int main(void)
         app_usbd_enable();
         app_usbd_start();
     }
-
-    while (true)
-    {
-        while (app_usbd_event_queue_process())
-        {
-            /* Nothing to do */
-        }
         
-}
 }
 
 

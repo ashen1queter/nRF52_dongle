@@ -45,7 +45,8 @@
     <folder Name="Application">
       <configuration
         Name="Common"
-        c_user_include_directories="C:\\Users\\HI\\Desktop\\ginna\\nrf52-donggle\\pika\\nRF5_SDK_17.1.0_ddde560\\nRF5_SDK_17.1.0_ddde560\\examples\\jesica\\ble_app_template\\pca10056\\s140\\ses\\" />
+        c_undefine_all_preprocessor_definitions="No"
+        c_user_include_directories="../../../../../../examples/jesica/ble_app_template/pca10056/s140/ses/" />
       <file file_name="ble_cus.c" />
       <file file_name="ble_cus.h" />
       <file file_name="cli_cdc.c" />
@@ -59,12 +60,26 @@
         <configuration Name="Debug" build_exclude_from_build="Yes" />
       </file>
       <file file_name="../config/sdk_config.h" />
-      <file file_name="stm32f4xx_hal_msp.c" />
-      <file file_name="stm32f4xx_it.c" />
-      <file file_name="syscalls.c" />
-      <file file_name="sysmem.c" />
-      <file file_name="system_stm32f4xx.c" />
-      <file file_name="usb_descriptors.c" />
+      <file file_name="stm32f4xx_hal_msp.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="stm32f4xx_it.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="syscalls.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="sysmem.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="system_stm32f4xx.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="usb_descriptors.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="usbd_cdc.c" />
+      <file file_name="usbd_cdc.h" />
     </folder>
     <folder Name="Board Definition">
       <file file_name="../../../../../../components/boards/boards.c" />

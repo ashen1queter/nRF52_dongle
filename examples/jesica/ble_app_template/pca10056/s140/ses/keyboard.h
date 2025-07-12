@@ -106,6 +106,7 @@ struct user_config {
   uint16_t tap_timeout;
   uint8_t socd_[LAYERS_COUNT][MATRIX_COLS];
   uint16_t keymaps[1][3][3];
+  bool SOCD;
 };
 
 void keyboard_task();

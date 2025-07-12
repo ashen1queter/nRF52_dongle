@@ -49,6 +49,7 @@
       <file file_name="ble_cus.c" />
       <file file_name="ble_cus.h" />
       <file file_name="cli_cdc.c" />
+      <file file_name="cli_cdc.h" />
       <file file_name="config.c" />
       <file file_name="hid.c" />
       <file file_name="keyboard.c" />

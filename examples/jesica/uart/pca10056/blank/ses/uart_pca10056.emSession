@@ -1,0 +1,51 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="uart_pca10056"/>
+  <ProjectSessionItem path="uart_pca10056;uart_pca10056"/>
+  <ProjectSessionItem path="uart_pca10056;uart_pca10056;Application"/>
+  <ProjectSessionItem path="uart_pca10056;uart_pca10056;Board Definition"/>
+  <ProjectSessionItem path="uart_pca10056;uart_pca10056;nRF_Libraries"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="146" useTextEdit="1" path="../../../main.c" left="0" top="135" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="../../../../../../components/boards/boards.c" left="0" top="95" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="74" useTextEdit="1" path="../../../../../../components/boards/boards.h" left="0" top="55" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="../../../../../../components/boards/pca10059.h" left="0" top="29" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="59" y="76" useTextEdit="1" path="../../../../../../components/libraries/uart/app_uart.h" left="0" top="74" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="22" y="100" useTextEdit="1" path="../../../../../../components/libraries/uart/retarget.c" left="0" top="84" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="629" useTextEdit="1" path="../config/sdk_config.h" left="13" selected="1" top="613" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="74" y="103" useTextEdit="1" path="../../../../../../modules/nrfx/hal/nrf_uart.h" left="68" top="88" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="uart_pca10056" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

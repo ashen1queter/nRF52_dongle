@@ -1,18 +1,5 @@
-#include "nrf_cli.h"
-//#include "nrf_cli_usb.h"
-#include "app_usbd_cdc_acm.h"
-#include "keyboard.h"
-#include "app_usbd_cdc_types.h"
+#include "cli_cdc.h"
 
-//NRF_CLI_USB_DEF(m_cli_usb);
-#define CDC_ACM_COMM_INTERFACE   0  // Communication Interface
-#define CDC_ACM_DATA_INTERFACE   1  // Data Interface
-
-#define CDC_ACM_COMM_EPIN        NRF_DRV_USBD_EPIN2  // Interrupt IN endpoint for notifications
-#define CDC_ACM_DATA_EPIN        NRF_DRV_USBD_EPIN1  // Bulk IN endpoint (device → host)
-#define CDC_ACM_DATA_EPOUT       NRF_DRV_USBD_EPOUT1 // Bulk OUT endpoint (host → device)
-
-static nrf_cli_t m_cli_usb;
 
 static void app_cdc_acm_user_ev_handler(app_usbd_class_inst_t const *p_inst,
                                         app_usbd_cdc_acm_user_event_t event);

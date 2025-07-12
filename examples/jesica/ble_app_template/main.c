@@ -31,6 +31,7 @@
 #include "config.h"
 #include "keyboard.h"
 #include "hid.h"
+#include "usbd_cdc.h"
 
 #define DEVICE_NAME                     "Nordic_Dongle"                         /**< Name of device. Will be included in the advertising data. */
 #define APP_ADV_INTERVAL                300                                     /**< The advertising interval (in units of 0.625 ms. This value corresponds to 187.5 ms). */
@@ -81,6 +82,7 @@ static ble_uuid_t m_adv_uuids[] =
 
 
 static void advertising_start(void);
+static void cli_or_hid(uint8_t flag);
 
 
 /**
@@ -472,6 +474,7 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
+            cli_or_hid(1);
             break;
 
         case BLE_GAP_EVT_PHY_UPDATE_REQUEST:
@@ -681,16 +684,14 @@ int main(void)
     //application_timers_start();
 
     advertising_start();
-    
     hid_init();
-
     keyboard_init_keys();
 
     // Enter main loop.
     for (;;)
     {
-         //while (app_usbd_event_queue_process()) {
-        //}
+         while (app_usbd_event_queue_process()) {
+        }
 
         keyboard_task();
         idle_state_handle();

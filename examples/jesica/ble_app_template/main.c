@@ -72,6 +72,7 @@ BLE_ADVERTISING_DEF(m_advertising);                                             
 //APP_TIMER_DEF(m_notification_timer_id);
 
 //static uint8_t m_custom_value = 0;
+uint8_t usbd_status;
 
 uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
 
@@ -83,7 +84,6 @@ static ble_uuid_t m_adv_uuids[] =
 
 
 static void advertising_start(void);
-static uint8_t usbd_status;
 
 
 /**

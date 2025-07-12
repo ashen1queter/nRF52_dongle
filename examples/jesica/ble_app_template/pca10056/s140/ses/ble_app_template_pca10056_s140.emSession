@@ -44,15 +44,15 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="9" y="29" useTextEdit="1" folds0="226,515,520,600,628,631,636,639,646,651,656" path="../../../main.c" left="0" selected="1" top="25" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="20" y="74" useTextEdit="1" folds0="226,515,520,600,628,631,636,639,646,651,656" path="../../../main.c" left="0" selected="1" top="67" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="428" useTextEdit="1" path="main_.c" left="0" top="421" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="27" y="198" useTextEdit="1" path="keyboard.c" left="14" top="191" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="5" y="26" useTextEdit="1" path="keyboard.c" left="0" top="22" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="108" useTextEdit="1" path="keyboard.h" left="0" top="101" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="13" y="14" useTextEdit="1" path="hid.h" left="0" top="7" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="44" y="6509" useTextEdit="1" path="../config/sdk_config.h" left="28" top="6502" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="8" y="229" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/hid/kbd/app_usbd_hid_kbd.h" left="0" top="222" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="11" y="517" useTextEdit="1" path="../../../../../../components/libraries/cli/nrf_cli.h" left="8" top="510" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="157" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.h" left="4" top="150" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="83" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.h" left="0" top="74" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="122" y="48" useTextEdit="1" path="../../../../../../components/libraries/cli/cdc_acm/nrf_cli_cdc_acm.c" left="104" top="43" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="66" useTextEdit="1" path="../../../../../../components/libraries/util/sdk_common.h" left="0" top="59" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="39" y="204" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.h" left="26" top="197" codecName="Default"/>
@@ -88,20 +88,21 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="12" y="128" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/stdio.h" left="0" top="121" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="57" y="525" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/nrf_soc.h" left="49" top="519" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="36" y="136" useTextEdit="1" path="../../../../../../components/ble/ble_advertising/ble_advertising.h" left="23" top="129" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="100" useTextEdit="1" path="ble_cus.c" left="0" top="93" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="99" useTextEdit="1" path="ble_cus.c" left="0" top="93" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="8" useTextEdit="1" path="cli_cdc.h" left="0" top="1" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="55" y="95" useTextEdit="1" path="cli_cdc.c" left="37" top="88" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="76" useTextEdit="1" path="usbd_cdc.c" left="0" top="70" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="91" useTextEdit="1" path="cli_cdc.c" left="37" top="88" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="180" useTextEdit="1" path="usbd_cdc.c" left="0" top="180" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="13" useTextEdit="1" path="usbd_cdc.h" left="0" top="6" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="../../../../../../../../ginna/nrf52-donggle/pika/nRF5_SDK_17.1.0_ddde560/nRF5_SDK_17.1.0_ddde560/examples/jesica/ble_app_template/pca10056/s140/ses/hid.h" left="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="2" y="67" useTextEdit="1" path="ble_cus.h" left="0" top="63" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="35" y="635" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gatts.h" left="17" top="628" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="15" y="11" useTextEdit="1" path="main.h" left="0" top="4" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="26" y="10" useTextEdit="1" path="main.h" left="0" top="4" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="5" y="66" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd_serial_num.h" left="0" top="59" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="12" y="580" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.c" left="0" top="577" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="60" y="89" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_power.h" left="47" top="82" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="3" y="83" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_power.h" left="0" top="79" codecName="Default"/>
-  <SessionOpenFile windowGroup="HUD {1d5bae59-ed1a-462d-8651-9567ab21a468} Middle" x="0" y="36" useTextEdit="1" path="hid.c" left="0" top="20" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" path="config.c" left="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="HUD {1d5bae59-ed1a-462d-8651-9567ab21a468} Middle" x="23" y="20" useTextEdit="1" path="hid.c" left="0" top="20" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="ble_app_template_pca10056_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/HI/Desktop/pikaaa/nRF52_dongle/examples/jesica/ble_app_template/pca10056/s140/ses" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

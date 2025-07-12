@@ -49,9 +49,15 @@
         c_user_include_directories="../../../../../../examples/jesica/ble_app_template/pca10056/s140/ses/" />
       <file file_name="ble_cus.c" />
       <file file_name="ble_cus.h" />
-      <file file_name="cli_cdc.c" />
-      <file file_name="cli_cdc.h" />
-      <file file_name="config.c" />
+      <file file_name="cli_cdc.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="cli_cdc.h">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="config.c">
+        <configuration Name="Debug" build_exclude_from_build="Yes" />
+      </file>
       <file file_name="hid.c" />
       <file file_name="keyboard.c" />
       <file file_name="../../../main.c" />

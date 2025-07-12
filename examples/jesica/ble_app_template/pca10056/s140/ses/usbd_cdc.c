@@ -63,6 +63,7 @@
 #include "app_timer.h"
 #include "ble_cus.h"
 #include "main.h"
+#include "usbd_cdc.h"
 
 #define SLEEP_TIMEOUT_MS 300000
 
@@ -177,6 +178,7 @@ static void cdc_prompt_next(void)
             cdc_state = CDC_STATE_DONE;
             break;
         case CDC_STATE_DONE:
+            usbd_status = 0;
             return;
     }
 
@@ -193,8 +195,7 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
                                     app_usbd_cdc_acm_user_event_t event)
 {
     ret_code_t ret;
-    app_usbd_cdc_acm_t const * p_cdc_acm = app_usbd_cdc_acm_class_get(p_inst);
-
+ 
     switch (event)
     {
         case APP_USBD_CDC_ACM_USER_EVT_PORT_OPEN:
@@ -215,7 +216,6 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
             app_timer_stop(m_sleep_timer);
             app_timer_start(m_sleep_timer, APP_TIMER_TICKS(SLEEP_TIMEOUT_MS), sleep_timeout_handler);
             do {
-                size_t size = app_usbd_cdc_acm_rx_size(p_cdc_acm);
                 ret = app_usbd_cdc_acm_read(&m_app_cdc_acm, m_rx_buffer, READ_SIZE);
             } while (ret == NRF_SUCCESS);
 

@@ -51,10 +51,10 @@
 //#define NOTIFICATION_INTERVAL           APP_TIMER_TICKS(1000)     
 
 #define SEC_PARAM_BOND                  1                                       /**< Perform bonding. */
-#define SEC_PARAM_MITM                  0                                       /**< Man In The Middle protection not required. */
-#define SEC_PARAM_LESC                  0                                       /**< LE Secure Connections not enabled. */
+#define SEC_PARAM_MITM                  0                                       /**< Man In The Middle protection not required. @todo 1(maybe). */
+#define SEC_PARAM_LESC                  0                                       /**< LE Secure Connections not enabled. @todo 1(maybe). */
 #define SEC_PARAM_KEYPRESS              0                                       /**< Keypress notifications not enabled. */
-#define SEC_PARAM_IO_CAPABILITIES       BLE_GAP_IO_CAPS_NONE                    /**< No I/O capabilities. */
+#define SEC_PARAM_IO_CAPABILITIES       BLE_GAP_IO_CAPS_NONE                    /**< No I/O capabilities. @todo BLE_GAP_IO_CAPS_KEYBOARD_ONLY(maybe). */
 #define SEC_PARAM_OOB                   0                                       /**< Out Of Band data not available. */
 #define SEC_PARAM_MIN_KEY_SIZE          7                                       /**< Minimum encryption key size. */
 #define SEC_PARAM_MAX_KEY_SIZE          16                                      /**< Maximum encryption key size. */
@@ -69,11 +69,9 @@ BLE_ADVERTISING_DEF(m_advertising);                                             
 
 //APP_TIMER_DEF(m_notification_timer_id);
 
-static uint8_t m_custom_value = 0;
+//static uint8_t m_custom_value = 0;
 
 static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;                        /**< Handle of the current connection. */
-
-uint8_t adc_values[3];
 
 // YOUR_JOB: Use UUIDs for service(s) used in your application.
 static ble_uuid_t m_adv_uuids[] =                                               
@@ -85,14 +83,21 @@ static ble_uuid_t m_adv_uuids[] =
 static void advertising_start(void);
 
 
-/**@brief Callback function for asserts in the SoftDevice.
+/**
+ * @todo
+ *
+ * @brief Callback function for asserts in the SoftDevice.
  *
  * @details This function will be called in case of an assert in the SoftDevice.
  *
  * @warning This handler is an example only and does not fit a final product. You need to analyze
  *          how your product is supposed to react in case of Assert.
  * @warning On assert from the SoftDevice, the system can only recover on reset.
- *
+
+ * @note
+ * This function is deprecated and will be removed in future releases.
+ * Use app_error_fault_handler instead.
+
  * @param[in] line_num   Line number of the failing ASSERT call.
  * @param[in] file_name  File name of the failing ASSERT call.
  */
@@ -109,6 +114,7 @@ void assert_nrf_callback(uint16_t line_num, const uint8_t * p_file_name)
 static void pm_evt_handler(pm_evt_t const * p_evt)
 {
     ret_code_t err_code;
+    static uint8_t enc_try = 0;
 
     switch (p_evt->evt_id)
     {
@@ -119,6 +125,7 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
 
         case PM_EVT_CONN_SEC_SUCCEEDED:
         {
+            enc_try = 0;
             NRF_LOG_INFO("Connection secured: role: %d, conn_handle: 0x%x, procedure: %d.",
                          ble_conn_state_role(p_evt->conn_handle),
                          p_evt->conn_handle,
@@ -133,6 +140,16 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
              * Sometimes, it cannot be restarted until the link is disconnected and reconnected.
              * Sometimes it is impossible, to secure the link, or the peer device does not support it.
              * How to handle this error is highly application dependent. */
+             
+             if(enc_try < 3){
+                enc_try++;
+                pm_conn_secure(p_evt->conn_handle, false);
+             }
+             else{
+                enc_try = 0;
+                sd_ble_gap_disconnect(p_evt->conn_handle, BLE_HCI_REMOTE_USER_TERMINATED_CONNECTION);
+             }
+              
         } break;
 
         case PM_EVT_CONN_SEC_CONFIG_REQ:
@@ -148,7 +165,10 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
             err_code = fds_gc();
             if (err_code == FDS_ERR_NO_SPACE_IN_QUEUES)
             {
-                // Retry.
+                // Retry. 
+                /**
+                @later
+                */
             }
             else
             {
@@ -158,7 +178,7 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
 
         case PM_EVT_PEERS_DELETE_SUCCEEDED:
         {
-            advertising_start();
+            //advertising_start();
         } break;
 
         case PM_EVT_PEER_DATA_UPDATE_FAILED:
@@ -184,7 +204,8 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
             // Assert.
             APP_ERROR_CHECK(p_evt->params.error_unexpected.error);
         } break;
-
+        
+        
         case PM_EVT_CONN_SEC_START:
         case PM_EVT_PEER_DATA_UPDATE_SUCCEEDED:
         case PM_EVT_PEER_DELETE_SUCCEEDED:
@@ -234,7 +255,7 @@ static void gap_params_init(void)
     ble_gap_conn_params_t   gap_conn_params;
     ble_gap_conn_sec_mode_t sec_mode;
 
-    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&sec_mode);
+    BLE_GAP_CONN_SEC_MODE_SET_ENC_WITH_MITM(&sec_mode);
 
     err_code = sd_ble_gap_device_name_set(&sec_mode,
                                           (const uint8_t *)DEVICE_NAME,
@@ -266,14 +287,15 @@ static void gatt_init(void)
 }
 
 
+/**@brief Function for storing value of each key from ADC value written
+ */
 void adc_write_handler(const uint8_t *new_state)
 {
     for(int i = 0; i < 3; i++)
     {
-        adc_values[i] = new_state[i];
+        keyboard_keys[i].state.value = new_state[i];
     }
 }
-  
 
 
 /**@brief Function for handling Queued Write Module errors.
@@ -405,12 +427,12 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
     {
         case BLE_ADV_EVT_FAST:
             NRF_LOG_INFO("Fast advertising.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
-            APP_ERROR_CHECK(err_code);
+            //err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+            //APP_ERROR_CHECK(err_code);
             break;
 
         case BLE_ADV_EVT_IDLE:
-            sleep_mode_enter();
+            sd_ble_gap_adv_stop(m_conn_handle);
             break;
 
         default:
@@ -430,6 +452,14 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 
     switch (p_ble_evt->header.evt_id)
     {
+        /**@todo CLI passkey input event
+        case BLE_GAP_EVT_AUTH_KEY_REQUEST:
+            sd_ble_gap_auth_key_reply(p_ble_evt->evt.gap_evt.conn_handle, BLE_GAP_AUTH_KEY_TYPE_PASSKEY, (uint8_t *)key); 
+            @todo CLI and get key
+            scanf("%6s", key);
+        */
+        break;
+
         case BLE_GAP_EVT_DISCONNECTED:
             NRF_LOG_INFO("Disconnected.");
             // LED indication will be changed when advertising starts.
@@ -437,8 +467,8 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 
         case BLE_GAP_EVT_CONNECTED:
             NRF_LOG_INFO("Connected.");
-            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
-            APP_ERROR_CHECK(err_code);
+            //err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
+            //APP_ERROR_CHECK(err_code);
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
@@ -538,6 +568,7 @@ static void peer_manager_init(void)
     err_code = pm_register(pm_evt_handler);
     APP_ERROR_CHECK(err_code);
 
+    /**
     memset(&privacy_params, 0, sizeof(pm_privacy_params_t));
     privacy_params.private_addr_cycle_s = 0;
     privacy_params.privacy_mode = BLE_GAP_PRIVACY_MODE_DEVICE_PRIVACY;
@@ -546,6 +577,7 @@ static void peer_manager_init(void)
 
     err_code = pm_privacy_set(&privacy_params);
     APP_ERROR_CHECK(err_code);
+    */
 }
 
 
@@ -622,8 +654,9 @@ static void idle_state_handle(void)
  */
 static void advertising_start(void)
 {
-    ret_code_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
-    APP_ERROR_CHECK(err_code);
+  ret_code_t err_code;
+  err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
+  APP_ERROR_CHECK(err_code);
 }
 
 
@@ -633,8 +666,8 @@ int main(void)
 {
     //bool erase_bonds;
 
-    // Initialize.
-    ///timers_init();
+    //Initialize.
+    //timers_init();
     leds_init();
     power_management_init();
     ble_stack_init();
@@ -656,8 +689,8 @@ int main(void)
     // Enter main loop.
     for (;;)
     {
-         while (app_usbd_event_queue_process()) {
-        }
+         //while (app_usbd_event_queue_process()) {
+        //}
 
         keyboard_task();
         idle_state_handle();

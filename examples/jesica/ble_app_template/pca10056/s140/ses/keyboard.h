@@ -105,7 +105,7 @@ struct user_config {
   uint8_t screaming_velocity_trigger;
   uint16_t tap_timeout;
   uint8_t socd_[LAYERS_COUNT][MATRIX_COLS];
-  uint16_t keymaps[LAYERS_COUNT][MATRIX_ROWS][MATRIX_COLS][3];
+  uint16_t keymaps[1][3][3];
 };
 
 void keyboard_task();
@@ -119,13 +119,7 @@ extern struct user_config keyboard_user_config = {
     .screaming_velocity_trigger = DEFAULT_SCREAMING_VELOCITY_TRIGGER,
     .tap_timeout = DEFAULT_TAP_TIMEOUT,
     .keymaps = {
-        [_BASE_LAYER] = {
-            {APP_USBD_HID_KBD_A,1,0},{APP_USBD_HID_KBD_W,0,1},{APP_USBD_HID_KBD_D,1,0}
-        },
-        [_TAP_LAYER] = {
-            {{____, 0,0},{APP_USBD_HID_KBD_S, 0,1},{____, 0,0}}
-        }
-    }
+            {APP_USBD_HID_KBD_A,1,0},{APP_USBD_HID_KBD_W,0,1},{APP_USBD_HID_KBD_D,1,0},{APP_USBD_HID_KBD_S, 0,1}}
 };
 
 extern struct key keyboard_keys[3];

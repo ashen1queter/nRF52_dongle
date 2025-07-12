@@ -18,6 +18,7 @@ static void on_write(ble_cus_t * p_cus, ble_evt_t const * p_ble_evt)
         && (p_cus->adc_write_handler != NULL))
     {
         p_cus->adc_write_handler(p_evt_write->data);
+
     }
 }
 

@@ -22,7 +22,7 @@ static void store_socd_pairs(struct key *a, struct key *b)
 }
 
 
-static void store_thres_pairs(struct key *a, struct key *b)
+static void store_thres_pairs(struct key *a[3][3], struct key *b[3][3])
 {
     a->actuation.end_thres = b->actuation.rapid_trigger_offset;
     b->actuation.end_thres = MAX_DISTANCE_OFFSET;
@@ -34,7 +34,7 @@ uint32_t keyboard_last_cycle_duration = 0;
 static uint8_t key_triggered = 0;
 
 
-void init_key(uint8_t i, uint8_t row, uint8_t column, uint8_t socd_, uint8_t pair_thres_) {
+void init_key(uint8_t i, uint8_t *socd_, uint8_t *pair_thres_) {
   struct key *key = &keyboard_keys[i];
   uint8_t socd_key_counter = 0;
   struct actuation *socd_key1 = {0};
@@ -74,8 +74,6 @@ void init_key(uint8_t i, uint8_t row, uint8_t column, uint8_t socd_, uint8_t pai
 
   key->is_enabled = 1;
   key->is_idle = 0;
-  key->row = row;
-  key->column = column;
 
   key->calibration.cycles_count = 0;
   key->calibration.idle_value = IDLE_VALUE_APPROX;
@@ -87,12 +85,11 @@ void init_key(uint8_t i, uint8_t row, uint8_t column, uint8_t socd_, uint8_t pai
   key->actuation.rapid_trigger_offset = keyboard_user_config.rapid_trigger_offset[i];
   key->actuation.is_continuous_rapid_trigger_enabled = 0;
 
-  for (uint8_t i = 0; i < LAYERS_COUNT; i++) {
+
     if (keyboard_user_config.keymaps[i][row][column] != ____) {
           key->layers[i].type = KEY_TYPE_NORMAL;
           key->layers[i].value = keyboard_user_config.keymaps[i][row][column][0];
         }
-}
 }
 }
 
@@ -305,18 +302,10 @@ void update_key(struct key *key, struct state *state) {
 
 void keyboard_init_keys(void) {
 
-  for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-    for (uint8_t col = 0; col < MATRIX_COLS; col++) {
-      if (channels_by_row_col[row][col][0] != XXXX) {
-          for(uint8_t i = 0; i < LAYERS_COUNT; i++){
-          for(uint8_t i = 0; i < LAYERS_COUNT; i++){
-                  init_key(channels_by_row_col[row][col][0], row, col,keyboard_user_config.keymaps[i][row][col][1], keyboard_user_config.keymaps[i][row][col][2]);
+  for (uint8_t i = 0; i < 4; i++) {
+                  init_key(i, keyboard_user_config.keymaps[i][1], keyboard_user_config.keymaps[i][2]);
               }
           }
-      }
-    }
-  }
-}
 
 void keyboard_task(void) {
   

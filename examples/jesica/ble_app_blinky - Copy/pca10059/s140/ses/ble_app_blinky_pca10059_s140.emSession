@@ -1,0 +1,55 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <ExecutionProfileWindow/>
+ <FrameBuffer/>
+ <Memory1/>
+ <Memory2/>
+ <Memory3/>
+ <Memory4/>
+ <Project>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;Application"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;nRF_BLE"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;nRF_BLE_Services"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;nRF_Drivers"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;nRF_Libraries"/>
+  <ProjectSessionItem path="ble_app_blinky_pca10059_s140;ble_app_blinky_pca10059_s140;nRF_Segger_RTT"/>
+ </Project>
+ <Register1/>
+ <Register2/>
+ <Register3/>
+ <Register4/>
+ <Threads>
+  <ThreadsWindow showLists=""/>
+ </Threads>
+ <TraceWindow>
+  <Trace enabled="Yes"/>
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Never"/>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never"/>
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never"/>
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never"/>
+ </Watch4>
+ <Files>
+  <SessionOpenFile windowGroup="DockEditLeft" x="86" y="303" useTextEdit="1" path="../../../main.c" left="43" selected="1" top="278" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="33" y="11435" useTextEdit="1" path="../config/sdk_config.h" left="0" top="11419" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="100" y="103" useTextEdit="1" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.h" left="47" top="93" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="5" y="66" useTextEdit="1" path="../../../../../../components/ble/ble_services/ble_lbs/ble_lbs.c" left="0" top="44" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="18" y="1056" useTextEdit="1" path="../../../../../../modules/nrfx/mdk/nrf52840.h" left="1" top="1040" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="7266" useTextEdit="1" path="../../../../../../modules/nrfx/mdk/nrf52840_bitfields.h" left="0" top="7250" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="24" y="354" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gatts.h" left="0" top="335" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="91" y="143" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble.h" left="34" top="126" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="63" useTextEdit="1" path="../../../../../../components/softdevice/s140/headers/ble_gatt.h" left="0" top="45" codecName="Default"/>
+ </Files>
+ <EMStudioWindow activeProject="ble_app_blinky_pca10059_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/HI/Desktop/pika/nRF5_SDK_17.1.0_ddde560/nRF5_SDK_17.1.0_ddde560/components/libraries/fds" debugSearchPath="" autoConnectCapabilities="3199"/>
+</session>

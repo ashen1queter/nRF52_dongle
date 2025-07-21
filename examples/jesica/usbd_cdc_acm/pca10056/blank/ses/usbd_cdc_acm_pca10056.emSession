@@ -39,22 +39,22 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="60" useTextEdit="1" folds0="111" path="../../../main.c" left="0" selected="1" top="37" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="28" y="71" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/stddef.h" left="0" top="52" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="10" y="382" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/__SEGGER_RTL_ConfDefaults.h" left="0" top="363" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="1319" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.c" left="0" top="1364" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="72" useTextEdit="1" path="../../../../../../components/boards/boards.c" left="0" top="55" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="674" useTextEdit="1" path="../../../../../../modules/nrfx/hal/nrf_gpio.h" left="0" top="655" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="46" y="120" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_usbd.h" left="0" top="101" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="33" y="1857" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/src/nrfx_usbd.c" left="0" top="1837" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="108" y="114" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd_types.h" left="50" top="96" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="55" y="83" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_power.h" left="0" top="65" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="86" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_power.h" left="0" top="70" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="144" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_usbd.h" left="2" top="109" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="1121" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.c" left="0" top="1103" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="16" y="60" useTextEdit="1" folds0="111" path="../../../main.c" left="6" selected="1" top="164" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="28" y="71" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/stddef.h" left="0" top="55" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="10" y="382" useTextEdit="1" path="C:/Program Files/SEGGER/SEGGER Embedded Studio 8.24/include/__SEGGER_RTL_ConfDefaults.h" left="0" top="366" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="1319" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd.c" left="0" top="1319" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="1" y="72" useTextEdit="1" path="../../../../../../components/boards/boards.c" left="0" top="56" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="674" useTextEdit="1" path="../../../../../../modules/nrfx/hal/nrf_gpio.h" left="0" top="658" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="46" y="120" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_usbd.h" left="0" top="105" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="33" y="1857" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/src/nrfx_usbd.c" left="0" top="1842" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="108" y="114" useTextEdit="1" path="../../../../../../components/libraries/usbd/app_usbd_types.h" left="50" top="99" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="55" y="83" useTextEdit="1" path="../../../../../../integration/nrfx/legacy/nrf_drv_power.h" left="0" top="68" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="86" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_power.h" left="0" top="71" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="4" y="144" useTextEdit="1" path="../../../../../../modules/nrfx/drivers/include/nrfx_usbd.h" left="2" top="129" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="11" y="1121" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.c" left="0" top="1108" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="77" y="152" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.h" left="20" top="139" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="206" useTextEdit="1" path="../../../../../../components/libraries/util/nordic_common.h" left="0" top="180" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="112" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/app_usbd_cdc_types.h" left="0" top="94" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="206" useTextEdit="1" path="../../../../../../components/libraries/util/nordic_common.h" left="0" top="193" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="2" y="112" useTextEdit="1" path="../../../../../../components/libraries/usbd/class/cdc/app_usbd_cdc_types.h" left="0" top="99" codecName="Default"/>
  </Files>
  <EMStudioWindow activeProject="usbd_cdc_acm_pca10056" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>

@@ -67,7 +67,7 @@ void init_key() {
   key->actuation.status = STATUS_RESET;
   cust_activate = cust_activate-key->calibration.max_distance;
   key->actuation.trigger_offset = cust_activate;
-  key->actuation.reset_offset = cust_activate+10;
+  key->actuation.reset_offset = cust_activate+20;
   key->actuation.rapid_trigger_offset = cust_activate;
 
   Serial.println(key->actuation.trigger_offset = cust_activate);
@@ -190,7 +190,6 @@ void cus_act(){
 }
 
 void update_key_actuation(struct key *key) {
-  //Serial.println(key->state.distance_8bits);
   
   //Serial.println("--- Key State Update ---");
   /**
@@ -215,7 +214,7 @@ void update_key_actuation(struct key *key) {
   // if rapid trigger enable, move trigger and reset offsets according to the distance taht began the trigger
 
   //uint32_t now = keyboard_get_time();
-   uint8_t is_after_trigger_offset = key->state.distance_8bits > key->actuation.trigger_offset;
+  uint8_t is_after_trigger_offset = key->state.distance_8bits > key->actuation.trigger_offset;
   uint8_t is_before_reset_offset = key->state.distance_8bits < key->actuation.reset_offset;
   uint8_t has_rapid_trigger = key->actuation.rapid_trigger_offset != 0;
   uint8_t is_after_rapid_trigger_offset = key->state.distance_8bits > key->actuation.direction_changed_point - key->actuation.rapid_trigger_offset + 10;
@@ -235,8 +234,14 @@ void update_key_actuation(struct key *key) {
     if (is_after_trigger_offset) {
         key->actuation.status = STATUS_TRIGGERED;
         key->actuation.is_triggered = 1;
+        Serial.print("Value:");
         Serial.println(key->state.value);
+        Serial.print("Distance 8 bits:");
         Serial.println(key->state.distance_8bits);
+        Serial.print("Direction:");
+        Serial.println(key->actuation.direction == GOING_UP? "UP":"DOWN");
+        Serial.print("Distance where direction changed:");
+        Serial.println(key->actuation.direction_changed_point);
         Serial.println("W");
         Serial.println();
       }
@@ -251,8 +256,14 @@ void update_key_actuation(struct key *key) {
     if (is_after_trigger_offset && key->actuation.direction == GOING_DOWN && is_after_rapid_trigger_offset) {
         key->actuation.status = STATUS_TRIGGERED;
         key->actuation.is_triggered = 1;
+        Serial.print("Value:");
         Serial.println(key->state.value);
+        Serial.print("Distance 8 bits:");
         Serial.println(key->state.distance_8bits);
+        Serial.print("Direction:");
+        Serial.println(key->actuation.direction == GOING_UP? "UP":"DOWN");
+        Serial.print("Distance where direction changed:");
+        Serial.println(key->actuation.direction_changed_point);
         Serial.println("Released");
         Serial.println();
       }
@@ -266,15 +277,27 @@ void update_key_actuation(struct key *key) {
     if (is_before_reset_offset) {
       key->actuation.status = STATUS_RESET;
       key->actuation.is_triggered = 0;
+      Serial.print("Value:");
       Serial.println(key->state.value);
+      Serial.print("Distance 8 bits:");
       Serial.println(key->state.distance_8bits);
+      Serial.print("Direction:");
+      Serial.println(key->actuation.direction == GOING_UP? "UP":"DOWN");
+      Serial.print("Distance where direction changed:");
+      Serial.println(key->actuation.direction_changed_point);
       Serial.println("Released");
       Serial.println();
     } else if (has_rapid_trigger && key->actuation.direction == GOING_UP && is_before_rapid_reset_offset) {
       key->actuation.status = STATUS_RAPID_TRIGGER_RESET;
       key->actuation.is_triggered = 0;
+      Serial.print("Value:");
       Serial.println(key->state.value);
+      Serial.print("Distance 8 bits:");
       Serial.println(key->state.distance_8bits);
+      Serial.print("Direction:");
+      Serial.println(key->actuation.direction == GOING_UP? "UP":"DOWN");
+      Serial.print("Distance where direction changed:");
+      Serial.println(key->actuation.direction_changed_point);
       Serial.println("Released");
       Serial.println();
     }

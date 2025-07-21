@@ -364,7 +364,7 @@ void keyboard_task(void) {
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(38400);
   cus_act();
   init_key();
 }
